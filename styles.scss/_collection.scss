@@ -4,15 +4,25 @@
     flex-direction: column;
 
     &-header {
-        padding-bottom: 10px;
+        padding-bottom: 20px;
         border-bottom: 1px solid rgb(233, 233, 233);
         color: rgb(150, 150, 150);
+
+        @media (min-width: 768px) {
+            padding: 20px 0 40px 0;
+
+            &-text {
+                >h2 {
+                    font-size: 32px;
+                }
+            }
+        }
     }
 
     &-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
         flex: 1;
 
         >p {
@@ -39,27 +49,35 @@
 
 
         .email-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr;
             padding: 15px;
+            gap: 20px;
             border: 1px solid rgb(220, 220, 220);
             border-radius: 10px;
             box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
             background-color: white;
 
             h4 {
                 margin-bottom: 10px;
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 600;
                 text-align: center;
+                overflow-wrap: break-word;
+                word-break: break-word;
+
+                @media (min-width: 768px) {
+                    font-size: 32px;
+                }
             }
 
             img {
                 width: 100%;
-                height: 150px; // Adjust based on your preference
-                object-fit: cover;
+                height: auto;
+                max-height: 100%;
+                object-fit: contain;
                 border-radius: 8px;
                 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
             }
