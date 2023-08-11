@@ -62,13 +62,18 @@
 
         &-add {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 10px;
+            right: 10px;
 
             >button {
-                padding: 12px 16px 6px 12px;
                 font-size: 40px;
-                color: rgb(100, 100, 100);
+                color: white;
+                background-color: #926fb1;
+                padding: 10px 10px 8px 10px;
+                border-radius: 5px;
+                border: 2px solid rgb(250, 250, 250);
+                line-height: 1.2rem;
+
 
                 @media (min-width: $large) {
                     padding: 12px 20px 6px 20px;
