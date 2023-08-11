@@ -1,0 +1,12 @@
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #333645;
+    opacity: 0;
+    transition: opacity 1s, left 0.5s, right 0.5s;
+    z-index: 99;
+    visibility: hidden;
+  }
