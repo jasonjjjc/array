@@ -137,15 +137,35 @@ $(document).ready(function () {
 
 
 
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+
+
+
+
+
     // Display and hide the addPhoto modal ///////////////////////////////////////////////////////////////////
 
     const addPhotoBtn = document.getElementById("addPhotoBtn");
     const addPhotoOverlay = document.getElementById("addPhoto");
     const closeAddPhotoOverlay = document.getElementById("closeAddPhotoOverlay");
+    const changeBtn = document.getElementById("changeBtn");
+    const photoPreview = document.getElementById("photoPreview");
+
+
+    // Object to store the new collection item
+    let newCollectionItem = {
+        email: "",
+        photos: []
+    };
 
     addPhotoBtn.addEventListener("click", () => {
         addPhotoOverlay.style.visibility = "visible";
         addPhotoOverlay.style.opacity = "1";
+        photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
+        newCollectionItem.photos.push(photoPreview.style.backgroundImage.slice(5, -2));
     });
 
     closeAddPhotoOverlay.addEventListener("click", () => {
@@ -156,8 +176,7 @@ $(document).ready(function () {
 
     // Change the image in the preview ///////////////////////////////////////////////////////////////////
 
-    const changeBtn = document.getElementById("changeBtn");
-    const photoPreview = document.getElementById("photoPreview");
+    
 
     changeBtn.addEventListener("click", () => {
         photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
@@ -172,20 +191,6 @@ $(document).ready(function () {
     const chooseBtn = document.getElementById("chooseBtn");
     const emailForm = document.getElementById("emailForm");
 
-    // Object to store the new collection item
-    let newCollectionItem = {
-        email: "",
-        photos: []
-    };
-
-
-    // Function to store the chosen image URL
-    function storePhoto() {
-        const currentBackgroundImage = photoPreview.style.backgroundImage.slice(5, -2);
-        newCollectionItem.photos.push(currentBackgroundImage);
-        console.log(newCollectionItem, 'newCollectionItem')
-    }
-
 
     function displayEmailForm() {
         emailForm.style.display = "flex";
@@ -193,7 +198,6 @@ $(document).ready(function () {
 
 
     chooseBtn.addEventListener("click", () => {
-        storePhoto();
         displayEmailForm();
     });
 
