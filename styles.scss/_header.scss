@@ -18,7 +18,7 @@
         z-index: 3;
 
         >svg {
-            fill: #333645;
+            fill: rgb(100, 100, 100);
 
             @media (min-width: $large) {
                 display: none;
@@ -27,11 +27,10 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            background-color: rgb(30, 30, 30);
-            border: 1px solid rgb(255, 254, 240);
+            background-color: rgb(100, 100, 100);
 
             >svg {
-                fill: rgb(255, 254, 240);
+                fill: white;
             }
         }
 
@@ -69,6 +68,7 @@
             >button {
                 padding: 12px 16px 6px 12px;
                 font-size: 40px;
+                color: rgb(100, 100, 100);
 
                 @media (min-width: $large) {
                     padding: 12px 20px 6px 20px;
@@ -78,7 +78,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            background-color: rgb(30, 30, 30);
+            background-color: rgb(100, 100, 100);
             box-shadow: 0 0 25px 0px rgba(255, 255, 255, 0.1);
 
             &-title {
