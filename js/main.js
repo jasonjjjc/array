@@ -134,6 +134,9 @@ $(document).ready(function () {
     });
 
 
+
+
+
     // Display and hide the addPhoto modal ///////////////////////////////////////////////////////////////////
 
     const addPhotoBtn = document.getElementById("addPhotoBtn");
@@ -162,24 +165,63 @@ $(document).ready(function () {
 
 
 
-    // S
-
-
     // Store an image and display the email address input ///////////////////////////////////////////////////////////////////
 
     const chooseBtn = document.getElementById("chooseBtn");
+    const emailForm = document.getElementById("emailForm");
 
-    // Array to store chosen image URLs
-    let chosenImages = [];
+    // Object to store the new collection
+    let newCollection = {
+        email: "",
+        photos: []
+    };
+
+    // Function to store the chosen image URL
+    function storePhoto() {
+        newCollection.photos.push(photoPreview.src);
+    }
+
+    function displayEmailForm() {
+        emailForm.style.display = "flex";
+    }
+
 
     chooseBtn.addEventListener("click", () => {
-        // Store the current image URL in the chosenImages array
-        chosenImages.push(photoPreview.src);
-
-        // Optional: Log the array for debugging purposes
-        console.log(chosenImages);
+        storePhoto();
+        displayEmailForm();
     });
 
+
+
+    // store the email address, add the photo and email address to to collection and display the success message ///////////////////////////////////////////////////////////////////
+
+    const submitBtn = document.getElementById("addToCollectionBtn");
+
+    submitBtn.addEventListener("click", () => {
+
+        // store the email in the newCollection object
+        const emailInput = document.getElementById("email");
+        const email = emailInput.value;
+        newCollection.email = email;
+        console.log(newCollection);
+
+        // hide the email form and the addPhotoOverlay
+        emailForm.style.display = "none";
+        addPhotoOverlay.style.visibility = "hidden";
+        addPhotoOverlay.style.opacity = "0";
+
+
+        // display the success message
+        const successMessage = document.getElementById("successMessage");
+        successMessage.style.visibility = "visible";
+        successMessage.style.opacity = "1";
+
+        // don't forget to reset the newCollection object after the success message is displayed
+        newCollection = {
+            email: "",
+            photos: []
+        };
+    });
 
 
 

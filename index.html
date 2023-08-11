@@ -61,19 +61,6 @@
         <div id="main">
             <div id="home">
                 <div id="home-content"> <!-- Component that can be swapped out on other pages -->
-                    <div id="collection">
-                        <div id="collection-header">
-                            <div id="collection-header-text">
-                                <h2>Collection</h2>
-                            </div>
-                        </div>
-                        <div id="collection-content">
-                            <!-- When the user adds photos to their collection they will replace this placeholder text -->
-                            <p>Oops! It looks like you have no photos in your collection yet!</p>
-                            <p>Click the plus sign in the top-right to start building your collection.</p>
-
-                        </div>
-                    </div>
                     <div id="addPhoto" class="add-photo">
                         <div class="add-photo-header">
                             <h2 class="add-photo-header-text">Add to Collection</h2>
@@ -91,14 +78,30 @@
                                 <a id="changeBtn" class="add-photo-form-image-buttons-new">Change</a>
                                 <a id="chooseBtn" class="add-photo-form-image-buttons-choose">Choose</a>
                             </div>
-                            <!-- <div class="add-photo-form-form-input">
+                            <div id="emailForm" class="add-photo-form-email">
                                 <label for="email">Please enter your email address</label>
                                 <input type="email" name="email" id="email" placeholder="Email Address" />
+                                <button id="addToCollectionBtn" class="add-photo-form-email-submit" type="submit">Add to Collection</button>
                             </div>
-                            <div class="add-photo-form-form-submit">
-                                <button type="submit">Add to Collection</button>
-                            </div> -->
                         </form>
+                    </div>
+                    <div id="successMessage" class="success-message">
+                        <!-- <p id="emailError" class="add-photo-form-email-error">Oops, something went wrong adding the photo(s) to your collection.<br><br> Please try again</p> -->
+                        <p class="success-message-text">You did it! Your photo was successfully added to your collection</p>
+                        <a id="closeSuccessMessage" class="success-message-close">x</a>
+                    </div>
+                    <div id="collection">
+                        <div id="collection-header">
+                            <div id="collection-header-text">
+                                <h2>Collection</h2>
+                            </div>
+                        </div>
+                        <div id="collection-content">
+                            <!-- When the user adds photos to their collection they will replace this placeholder text -->
+                            <p>Oops! It looks like you have no photos in your collection yet!</p>
+                            <p>Click the plus sign in the top-right to start building your collection.</p>
+
+                        </div>
                     </div>
                     <!-- <footer></footer> -->
                 </div>
