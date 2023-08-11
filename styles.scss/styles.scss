@@ -20,7 +20,6 @@ $extra-extra-large: 1560px;
 
 
 :root {
-    font-family: Arial, sans-serif;
     color: rgb(100, 100, 100);
     letter-spacing: 0.4px;
 
@@ -30,6 +29,9 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    font-family: 'almarai', sans-serif;
+}
 
 
 

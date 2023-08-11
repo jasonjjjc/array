@@ -134,14 +134,20 @@ $(document).ready(function () {
     });
 
 
-    // Display the add photo modal ///////////////////////////////////////////////////////////////////
+    // Display and hide the addPhoto modal ///////////////////////////////////////////////////////////////////
 
     const addPhotoBtn = document.getElementById("addPhotoBtn");
     const addPhotoOverlay = document.getElementById("addPhoto");
+    const closeAddPhotoOverlay = document.getElementById("closeAddPhotoOverlay");
 
     addPhotoBtn.addEventListener("click", () => {
         addPhotoOverlay.style.visibility = "visible";
         addPhotoOverlay.style.opacity = "1";
+    });
+
+    closeAddPhotoOverlay.addEventListener("click", () => {
+        addPhotoOverlay.style.visibility = "hidden";
+        addPhotoOverlay.style.opacity = "0";
     });
 
 
@@ -151,7 +157,31 @@ $(document).ready(function () {
     const photoPreview = document.getElementById("photoPreview");
 
     changeBtn.addEventListener("click", () => {
-        photoPreview.src = 'https://picsum.photos/200';
+        photoPreview.src = 'https://picsum.photos/200?' + new Date().getTime();
     });
+
+
+
+    // S
+
+
+    // Store an image and display the email address input ///////////////////////////////////////////////////////////////////
+
+    const chooseBtn = document.getElementById("chooseBtn");
+
+    // Array to store chosen image URLs
+    let chosenImages = [];
+
+    chooseBtn.addEventListener("click", () => {
+        // Store the current image URL in the chosenImages array
+        chosenImages.push(photoPreview.src);
+
+        // Optional: Log the array for debugging purposes
+        console.log(chosenImages);
+    });
+
+
+
+
 
 });
