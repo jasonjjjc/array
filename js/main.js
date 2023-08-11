@@ -182,11 +182,8 @@ $(document).ready(function () {
     // Function to store the chosen image URL
     function storePhoto() {
         const currentBackgroundImage = photoPreview.style.backgroundImage.slice(5, -2);
-        if (newCollectionItem.photos.length === 0) {
-            newCollectionItem.photos.push(currentBackgroundImage);
-        } else if (!newCollectionItem.photos.includes(currentBackgroundImage)) {
-            newCollectionItem.photos.push(currentBackgroundImage);
-        }
+        newCollectionItem.photos.push(currentBackgroundImage);
+        console.log(newCollectionItem, 'newCollectionItem')
     }
 
 
@@ -198,7 +195,6 @@ $(document).ready(function () {
     chooseBtn.addEventListener("click", () => {
         storePhoto();
         displayEmailForm();
-        console.log(newCollectionItem);
     });
 
 
