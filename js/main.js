@@ -103,101 +103,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-    // Perform input validation on all contact form inputs and ensure that the email address is in a valid format using regex
-
-    // // Get the form and submit button elements
-    // const contactSection = document.getElementById('contact');
-    // const contactForm = document.getElementById('contact-form');
-    // const contactFormInputs = document.getElementById('contact-form-inputs');
-    // const submitButton = document.getElementById('contact-form-submit');
-
-    // // Regular expression for email validation
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // // Function to display validation error messages below the input fields
-    // function showValidationError(message) {
-    //     const errorDiv = document.createElement('div');
-    //     errorDiv.className = 'validation-error';
-    //     errorDiv.textContent = message;
-    //     contactFormInputs.appendChild(errorDiv);
-    // }
-
-    // // Function to remove validation error messages
-    // function removeAllValidationErrors() {
-    //     const errorDivs = document.querySelectorAll('.validation-error');
-    //     errorDivs.forEach(errorDiv => {
-    //         errorDiv.remove();
-    //     });
-    // }
-
-    // Add event listener to the form's submit button
-    // Add event listener to the form's submit button
-    // submitButton.addEventListener('click', function (event) {
-    //     // Prevent the form from submitting by default
-    //     event.preventDefault();
-
-    //     // Remove all existing validation error messages
-    //     removeAllValidationErrors();
-
-    //     // Get the values of the form fields
-    //     const firstName = document.getElementById('first-name').value;
-    //     const lastName = document.getElementById('last-name').value;
-    //     const email = document.getElementById('email').value;
-    //     const message = document.getElementById('contact-form-inputs-message').value;
-
-    //     // Array to store validation error messages
-    //     let errorMessages = [];
-
-    //     // Perform basic validation
-    //     if (firstName.trim() === '') {
-    //         errorMessages.push('Please enter your first name.');
-    //     }
-
-    //     if (lastName.trim() === '') {
-    //         errorMessages.push('Please enter your last name.');
-    //     }
-
-    //     if (email.trim() === '') {
-    //         errorMessages.push('Please enter your email address.');
-    //     } else if (!emailRegex.test(email)) {
-    //         errorMessages.push('Please enter a valid email address.');
-    //     }
-
-    //     if (message.trim() === '') {
-    //         errorMessages.push('Please enter your message.');
-    //     }
-
-    //     // Display all validation error messages
-    //     errorMessages.forEach(message => {
-    //         showValidationError(message);
-    //     });
-
-    //     // If there are no validation errors, proceed with form submission
-    //     if (errorMessages.length === 0) {
-    //         // If all validation passes, submit the form
-    //         // contactForm.submit();
-    //         // append confirmation message to the form
-    //         const confirmationMessage = document.createElement('p');
-    //         confirmationMessage.className = 'confirmation-message';
-    //         confirmationMessage.textContent = 'Thank you for your message. I will get back to you as soon as possible.';
-    //         contactSection.appendChild(confirmationMessage);
-    //         // remove the form
-    //         contactForm.remove();
-    //     }
-
-    // });
-
-
-
-
     // Cookie Pop-up ////////////////////////////////////////////////////////////////////////////
 
 
@@ -226,6 +131,27 @@ $(document).ready(function () {
 
     crumbPreferenceBtn.addEventListener("click", () => {
         crumbOverlay.style.display = "flex";
+    });
+
+
+    // Display the add photo modal ///////////////////////////////////////////////////////////////////
+
+    const addPhotoBtn = document.getElementById("addPhotoBtn");
+    const addPhotoOverlay = document.getElementById("addPhoto");
+
+    addPhotoBtn.addEventListener("click", () => {
+        addPhotoOverlay.style.visibility = "visible";
+        addPhotoOverlay.style.opacity = "1";
+    });
+
+
+    // Change the image in the preview ///////////////////////////////////////////////////////////////////
+
+    const changeBtn = document.getElementById("changeBtn");
+    const photoPreview = document.getElementById("photoPreview");
+
+    changeBtn.addEventListener("click", () => {
+        photoPreview.src = 'https://picsum.photos/200';
     });
 
 });

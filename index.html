@@ -31,10 +31,10 @@
             </div>
             <div id="header-banner">
                 <div id="header-banner-title">
-                    <h1>picMail</h1>
+                    <h1>picMailr</h1>
                 </div>
                 <div id="header-banner-add">
-                    <button>+</button>
+                    <button id="addPhotoBtn">+</button>
                 </div>
             </div>
             <div id="nav">
@@ -42,7 +42,7 @@
                     <h1>pM</h1>
                 </a>
                 <ul id="nav-bar">
-                    <li class="nav-bar-item"><a class="title" href="./pages/about-picmail.html">About picMail</a></li>
+                    <li class="nav-bar-item"><a class="title" href="./pages/about-picmail.html">About picMailr</a></li>
                 </ul>
                 <a id="linkedin-button" class="title" href="https://linkedin.com/in/jason-chalangary" target="_blank">
                     <div id="contact-us">Contact Us</div>
@@ -53,14 +53,14 @@
                         </path>
                     </svg>
                     <div id="linkedin-hover-text">
-                        <h3>LinkedIn</h3>
+                        <h2>LinkedIn</h2>
                     </div>
                 </a>
             </div>
         </header>
         <div id="main">
             <div id="home">
-                <div id="home-content">
+                <div id="home-content"> <!-- Component that can be swapped out on other pages -->
                     <div id="collection">
                         <div id="collection-header">
                             <div id="collection-header-text">
@@ -74,6 +74,32 @@
 
                         </div>
                     </div>
+                    <div id="addPhoto" class="add-photo">
+                        <h2 class="add-photo-header">
+                            <h2 class="add-photo-header-text">Add to Collection</h2>
+                        </h2>
+                        <!-- <ul class="add-photo-guide">
+                            <li>To add to your collection, simply click 'New Pic' until you see a picture you like.</li>
+                            <li>Then enter an email address you would like to send it to and click 'Add'.</li>
+                            <li>You will see your new picture added to your collection.</li>
+                        </ul> -->
+                        <form class="add-photo-form">
+                            <div class="add-photo-form-image"></div>
+                            <img id="photoPreview" class="add-photo-form-image-preview" src="https://picsum.photos/200" alt="placeholder" />
+                            <div class="add-photo-form-image-buttons">
+                                <a id="changeBtn" class="add-photo-form-image-buttons-new">Change</a>
+                                <a id="chooseBtn" class="add-photo-form-image-buttons-choose">Choose</a>
+                            </div>
+                            <!-- <div class="add-photo-form-form-input">
+                                <label for="email">Please enter your email address</label>
+                                <input type="email" name="email" id="email" placeholder="Email Address" />
+                            </div>
+                            <div class="add-photo-form-form-submit">
+                                <button type="submit">Add to Collection</button>
+                            </div> -->
+                        </form>
+                    </div>
+                    <!-- <footer></footer> -->
                 </div>
             </div>
         </div>

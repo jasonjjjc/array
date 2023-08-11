@@ -8,6 +8,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        position: relative;
 
         #collection {
             flex: 1;
@@ -16,7 +17,8 @@
 
             &-header {
                 padding-bottom: 10px;
-                border-bottom: 1px solid rgb(193, 192, 192);
+                border-bottom: 1px solid rgb(233, 233, 233);
+                color: rgb(150, 150, 150);
             }
 
             &-content {

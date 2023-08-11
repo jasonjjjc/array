@@ -1,0 +1,100 @@
+.add-photo {
+    // visibility: hidden;
+    // opacity: 0;
+    // transition: visibility 0.5s, opacity 0.5s linear;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.2);
+    color: rgb(100, 100, 100);
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s linear;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    &-header {
+        &-text {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    &-guide {
+        line-height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-image {
+
+            &-preview {
+                width: 200px;
+            }
+
+            &-buttons {
+                padding: 19px 20px 20px;
+                border-top: 1px solid #e5e5e5;
+                line-height: 1.42857143;
+                display: flex;
+                gap: 10px;
+                margin-top: 40px;
+
+                a {
+                    flex: 1;
+                    height: auto;
+                    line-height: 35px;
+                    padding: 5px 15px;
+                    text-transform: uppercase;
+                    font-size: 1.063rem;
+                    border-radius: 3px;
+                    border: 1px solid transparent;
+                    white-space: normal;
+                    font-weight: 400;
+                    color: #fff;
+                    text-align: center;
+                    cursor: pointer;
+        
+                }
+
+                &-new {
+                    background-color: #999aa2;
+                    border-color: #999aa2;
+
+                    &:hover {
+                        background-color: #84858f;
+                        border-color: #797a85;
+                    }
+                }
+
+                &-choose {
+                    background-color: #926fb1;
+                    border-color: #926fb1;
+
+                    &:hover {
+                        background-color: #7e57a0;
+                        border-color: #735093;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+}
