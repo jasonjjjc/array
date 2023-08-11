@@ -42,10 +42,12 @@
             }
         }
 
-
-
         @media (min-width: $large) {
             margin-left: 200px;
+        }
+
+        @media (min-width: $extra-extra-large) {
+            margin: 0 50px;
         }
 
 
