@@ -65,7 +65,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            
+
             >button {
                 padding: 12px 16px 6px 12px;
                 font-size: 40px;
@@ -94,23 +94,24 @@
 
         @media (min-width: $large) {
             padding-left: 200px;
+
             &-title {
                 margin: 0 auto;
                 transform: none;
             }
-            
+
         }
 
         @media (min-width: $extra-extra-large) {
             width: 1200px;
             position: relative;
             padding: 0;
-            
+
             &-title {
                 margin: 0 auto;
                 transform: none;
             }
-            
+
         }
 
     }
@@ -302,12 +303,28 @@
 
             }
 
+            #linkedin-hover-text {
+                height: 100%;
+                width: 100%;
+                color: white;
+                background-color: transparent;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+            }
+
 
             &:hover {
                 background-color: rgb(100, 100, 100);
 
                 >svg {
-                    fill: white;
+                    display: none;
+                }
+
+                >#linkedin-hover-text {
+                    display: flex;
                 }
             }
 
