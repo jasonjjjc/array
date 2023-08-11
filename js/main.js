@@ -160,8 +160,10 @@ $(document).ready(function () {
     const photoPreview = document.getElementById("photoPreview");
 
     changeBtn.addEventListener("click", () => {
-        photoPreview.src = 'https://picsum.photos/200?' + new Date().getTime();
+        photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
+        console.log(photoPreview.style.backgroundImage);
     });
+
 
 
 
@@ -170,16 +172,23 @@ $(document).ready(function () {
     const chooseBtn = document.getElementById("chooseBtn");
     const emailForm = document.getElementById("emailForm");
 
-    // Object to store the new collection
-    let newCollection = {
+    // Object to store the new collection item
+    let newCollectionItem = {
         email: "",
         photos: []
     };
 
+
     // Function to store the chosen image URL
     function storePhoto() {
-        newCollection.photos.push(photoPreview.src);
+        const currentBackgroundImage = photoPreview.style.backgroundImage.slice(5, -2);
+        if (newCollectionItem.photos.length === 0) {
+            newCollectionItem.photos.push(currentBackgroundImage);
+        } else if (!newCollectionItem.photos.includes(currentBackgroundImage)) {
+            newCollectionItem.photos.push(currentBackgroundImage);
+        }
     }
+
 
     function displayEmailForm() {
         emailForm.style.display = "flex";
@@ -189,6 +198,7 @@ $(document).ready(function () {
     chooseBtn.addEventListener("click", () => {
         storePhoto();
         displayEmailForm();
+        console.log(newCollectionItem);
     });
 
 
@@ -197,13 +207,56 @@ $(document).ready(function () {
 
     const submitBtn = document.getElementById("addToCollectionBtn");
 
-    submitBtn.addEventListener("click", () => {
+    submitBtn.addEventListener("click", (event) => {
 
-        // store the email in the newCollection object
+        // prevent the default form submission
+        event.preventDefault();
+
+        // store the email in the newCollectionItem object
         const emailInput = document.getElementById("email");
         const email = emailInput.value;
-        newCollection.email = email;
-        console.log(newCollection);
+        newCollectionItem.email = email;
+        console.log(newCollectionItem);
+
+        // display the new collection item in the collection list
+
+        function addPhotoToCollection() {
+            // Get the collection content container
+            const collectionContent = document.getElementById("collection-content");
+
+            // Check if a div with the email already exists
+            const existingEmailDiv = document.querySelector(`.email-card[data-email="${newCollectionItem.email}"]`);
+
+            if (existingEmailDiv) {
+                // If the div exists, add the new image to it
+                const img = document.createElement("img");
+                img.src = newCollectionItem.photos[0];
+                existingEmailDiv.appendChild(img);
+            } else {
+                // If the div doesn't exist, create a new card with the email and image
+                const cardDiv = document.createElement("div");
+                cardDiv.classList.add("email-card");
+                cardDiv.setAttribute("data-email", newCollectionItem.email);
+
+                const emailHeader = document.createElement("h4");
+                emailHeader.innerText = newCollectionItem.email;
+                cardDiv.appendChild(emailHeader);
+
+                const img = document.createElement("img");
+                img.src = newCollectionItem.photos[0];
+                cardDiv.appendChild(img);
+
+                // Add the new card to the collection content
+                collectionContent.appendChild(cardDiv);
+
+                // Optionally, remove the placeholder text from the collection content
+                const placeholderTexts = collectionContent.querySelectorAll("p");
+                placeholderTexts.forEach(p => p.style.display = "none");
+            }
+        }
+
+        addPhotoToCollection();
+
 
         // hide the email form and the addPhotoOverlay
         emailForm.style.display = "none";
@@ -216,13 +269,22 @@ $(document).ready(function () {
         successMessage.style.visibility = "visible";
         successMessage.style.opacity = "1";
 
-        // don't forget to reset the newCollection object after the success message is displayed
-        newCollection = {
+        // reset the newCollectionItem object after the success message is displayed
+        newCollectionItem = {
             email: "",
             photos: []
         };
     });
 
+    // close the success message ///////////////////////////////////////////////////////////////////
+
+    const closeSuccessMessage = document.getElementById("closeSuccessMessage");
+
+    closeSuccessMessage.addEventListener("click", () => {
+        const successMessage = document.getElementById("successMessage");
+        successMessage.style.visibility = "hidden";
+        successMessage.style.opacity = "0";
+    });
 
 
 
