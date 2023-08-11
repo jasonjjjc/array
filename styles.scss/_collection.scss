@@ -1,0 +1,70 @@
+#collection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(233, 233, 233);
+        color: rgb(150, 150, 150);
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+
+        >p {
+            padding: 20px 0;
+            line-height: 2em;
+            font-weight: 600;
+        }
+
+        >p:nth-of-type(1) {
+            padding-top: 100px;
+            font-size: 1.2rem;
+        }
+
+        >p:nth-of-type(2) {
+            font-size: 1rem;
+
+            >span {
+                background-color: #926fb1;
+                padding: 2px 8px 4px 9px;
+                border-radius: 2px;
+                color: white;
+            }
+        }
+
+
+        .email-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid rgb(220, 220, 220);
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            background-color: white;
+
+            h4 {
+                margin-bottom: 10px;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            img {
+                width: 100%;
+                height: 150px; // Adjust based on your preference
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+    }
+
+}
