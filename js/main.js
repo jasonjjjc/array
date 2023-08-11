@@ -7,12 +7,14 @@ $(document).ready(function () {
     // Get the elements by their IDs
     const hidesNav = document.querySelectorAll('.hides-nav');
     const nav = document.getElementById('nav');
-    // get the width of the screen
-    const screenWidth = window.innerWidth;
+
 
     // Add event listener to the menu-wrapper element
     hidesNav.forEach((el) => {
         el.addEventListener('click', function () {
+            // Get the current screen width
+            const screenWidth = window.innerWidth;
+
             // Check if the nav is currently visible
             const isNavVisible = parseInt(getComputedStyle(nav).left) >= 0;
 
@@ -43,8 +45,11 @@ $(document).ready(function () {
 
     // Add event listener to each element
     allElements.forEach((el) => {
-        if (el.id !== 'nav' && screenWidth < 992) {
-            el.addEventListener('click', function () {
+        el.addEventListener('click', function () {
+            // Get the current screen width
+            const screenWidth = window.innerWidth;
+
+            if (el.id !== 'nav' && screenWidth < 992) {
                 // Check if the nav is currently visible
                 const isNavVisible = parseInt(getComputedStyle(nav).left) >= 0;
 
@@ -52,8 +57,8 @@ $(document).ready(function () {
                 if (isNavVisible) {
                     hideNav();
                 }
-            });
-        }
+            }
+        });
     });
 
 
@@ -108,30 +113,30 @@ $(document).ready(function () {
 
     // Perform input validation on all contact form inputs and ensure that the email address is in a valid format using regex
 
-    // Get the form and submit button elements
-    const contactSection = document.getElementById('contact');
-    const contactForm = document.getElementById('contact-form');
-    const contactFormInputs = document.getElementById('contact-form-inputs');
-    const submitButton = document.getElementById('contact-form-submit');
+    // // Get the form and submit button elements
+    // const contactSection = document.getElementById('contact');
+    // const contactForm = document.getElementById('contact-form');
+    // const contactFormInputs = document.getElementById('contact-form-inputs');
+    // const submitButton = document.getElementById('contact-form-submit');
 
-    // Regular expression for email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // // Regular expression for email validation
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Function to display validation error messages below the input fields
-    function showValidationError(message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'validation-error';
-        errorDiv.textContent = message;
-        contactFormInputs.appendChild(errorDiv);
-    }
+    // // Function to display validation error messages below the input fields
+    // function showValidationError(message) {
+    //     const errorDiv = document.createElement('div');
+    //     errorDiv.className = 'validation-error';
+    //     errorDiv.textContent = message;
+    //     contactFormInputs.appendChild(errorDiv);
+    // }
 
-    // Function to remove validation error messages
-    function removeAllValidationErrors() {
-        const errorDivs = document.querySelectorAll('.validation-error');
-        errorDivs.forEach(errorDiv => {
-            errorDiv.remove();
-        });
-    }
+    // // Function to remove validation error messages
+    // function removeAllValidationErrors() {
+    //     const errorDivs = document.querySelectorAll('.validation-error');
+    //     errorDivs.forEach(errorDiv => {
+    //         errorDiv.remove();
+    //     });
+    // }
 
     // Add event listener to the form's submit button
     // Add event listener to the form's submit button
