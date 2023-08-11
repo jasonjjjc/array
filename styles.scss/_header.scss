@@ -54,7 +54,7 @@
         padding-left: 50%;
         padding-top: 10px;
         padding-bottom: 10px;
-        box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.1);
         background-color: white;
 
         &-title {
@@ -69,6 +69,11 @@
             >button {
                 padding: 12px 16px 6px 12px;
                 font-size: 40px;
+
+                @media (min-width: $large) {
+                    padding: 12px 20px 6px 20px;
+                    font-size: 40px;
+                }
             }
         }
 
@@ -85,6 +90,15 @@
                     color: white;
                 }
             }
+        }
+
+        @media (min-width: $large) {
+            padding-left: 200px;
+            &-title {
+                margin: 0 auto;
+                transform: none;
+            }
+            
         }
 
         @media (min-width: $extra-extra-large) {
@@ -134,7 +148,6 @@
             background-color: white;
 
             >h1 {
-                color: rgb(30, 30, 30);
                 font-size: 30px;
 
                 @media (min-height: 300px) {
@@ -148,7 +161,7 @@
             }
 
             &:hover {
-                background-color: rgb(30, 30, 30);
+                background-color: rgb(100, 100, 100);
 
                 >h1 {
                     color: white;
@@ -156,7 +169,7 @@
             }
 
             @media (prefers-color-scheme: dark) {
-                background-color: rgb(30, 30, 30);
+                background-color: rgb(100, 100, 100);
 
                 >h1 {
                     color: white;
@@ -166,7 +179,7 @@
                     background-color: white;
 
                     >h1 {
-                        color: rgb(30, 30, 30);
+                        color: rgb(100, 100, 100);
                         background-color: white;
                     }
                 }
@@ -186,21 +199,21 @@
                 >a {
                     display: block;
                     padding: 5px 15px;
-                    color: rgb(30, 30, 30);
+
                     background-color: white;
 
                     &:hover {
                         color: white;
-                        background-color: rgb(30, 30, 30);
+                        background-color: rgb(100, 100, 100);
 
                     }
 
                     @media (prefers-color-scheme: dark) {
                         color: white;
-                        background-color: rgb(30, 30, 30);
+                        background-color: rgb(100, 100, 100);
 
                         &:hover {
-                            color: rgb(30, 30, 30);
+                            color: rgb(100, 100, 100);
                             background-color: white;
                         }
                     }
@@ -253,7 +266,6 @@
                 top: 5px;
                 width: 100%;
                 text-align: center;
-                color: rgb(30, 30, 30);
                 background-color: transparent;
 
                 @media(prefers-color-scheme: dark) {
@@ -265,7 +277,7 @@
             >svg {
                 height: 20px;
                 width: 20px;
-                fill: rgb(30, 30, 30);
+                fill: rgb(100, 100, 100);
 
                 @media (min-height: 300px) {
                     height: 30px;
@@ -292,7 +304,7 @@
 
 
             &:hover {
-                background-color: rgb(30, 30, 30);
+                background-color: rgb(100, 100, 100);
 
                 >svg {
                     fill: white;
@@ -300,7 +312,7 @@
             }
 
             @media (prefers-color-scheme: dark) {
-                background-color: rgb(30, 30, 30);
+                background-color: rgb(100, 100, 100);
 
                 >svg {
                     fill: white;
@@ -310,7 +322,7 @@
                     background-color: white;
 
                     >svg {
-                        fill: rgb(30, 30, 30);
+                        fill: rgb(100, 100, 100);
                         background-color: white;
                     }
                 }
@@ -324,7 +336,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            background-color: rgb(30, 30, 30);
+            background-color: rgb(100, 100, 100);
             border-right: 3px solid rgb(210, 210, 210);
         }
 
