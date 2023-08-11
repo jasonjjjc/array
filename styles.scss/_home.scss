@@ -1,0 +1,45 @@
+#home {
+    height: 100vh;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+
+        
+
+        
+
+        @media (min-width: $large) {
+            margin-left: 200px;
+        }
+
+
+    }
+
+    @media (min-width: $small) {
+        padding-top: 60px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+
+    @media (min-width: $large) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    @media (min-width: $extra-large) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    @media (min-width: $extra-extra-large) {
+        width: 1200px;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
