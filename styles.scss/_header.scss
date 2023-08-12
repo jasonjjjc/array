@@ -263,49 +263,13 @@
             background-color: white;
             position: relative;
 
-
             #contact-us {
-                position: absolute;
-                top: 5px;
-                width: 100%;
-                text-align: center;
-                background-color: transparent;
-
-                @media(prefers-color-scheme: dark) {
-                    color: white;
-
-                }
-            }
-
-            >svg {
-                height: 20px;
-                width: 20px;
-                fill: rgb(100, 100, 100);
-
-                @media (min-height: 300px) {
-                    height: 30px;
-                    width: 30px;
-                }
-
-                @media (min-height: 450px) {
-                    height: 40px;
-                    width: 40px;
-                }
-
-                @media (min-height: 600px) {
-                    height: 50px;
-                    width: 50px;
-                }
-
-                @media (min-height: 700px) {
-                    height: 60px;
-                    width: 60px;
-                }
-
-
+                font-size: 20px;
+                font-weight: 600;
             }
 
             #linkedin-hover-text {
+                position: absolute;
                 height: 100%;
                 width: 100%;
                 color: white;
@@ -317,13 +281,8 @@
 
             }
 
-
             &:hover {
                 background-color: rgb(100, 100, 100);
-
-                >svg {
-                    display: none;
-                }
 
                 >#linkedin-hover-text {
                     display: flex;
@@ -332,10 +291,6 @@
 
             @media (prefers-color-scheme: dark) {
                 background-color: rgb(100, 100, 100);
-
-                >svg {
-                    fill: white;
-                }
 
                 &:hover {
                     background-color: white;

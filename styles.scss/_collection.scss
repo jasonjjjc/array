@@ -1,4 +1,7 @@
 #collection {
+    display:flex;
+    flex-direction: column;
+
 
     &-header {
         padding-bottom: 10px;
@@ -16,6 +19,7 @@
     }
 
     &-content {
+        align-self: center;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
@@ -44,6 +48,7 @@
 
         .email-card {
             width: 100%;
+            max-width: 600px;
             overflow: hidden;
             display: grid;
             grid-template-columns: 1fr;
