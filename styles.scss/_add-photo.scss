@@ -12,7 +12,7 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.3s, opacity 0.3s linear;
-    
+
     display: none;
     flex-direction: column;
     align-items: center;
@@ -92,7 +92,7 @@
                     color: #fff;
                     text-align: center;
                     cursor: pointer;
-        
+
                 }
 
                 &-new {
@@ -129,28 +129,50 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 40px;
             padding: 0 10px;
 
-            input {
+            label {
+                position: relative;
                 width: 100%;
-                padding: 5px 10px;
-                border-radius: 5px;
-                border-top: 1px solid rgb(200, 200, 200);
-                border-right: none;
-                border-bottom: none;
-                border-left: none;
-                outline: 1px solid rgb(220, 220, 220);
-                background-color: rgb(240, 240, 240);
-                font-size: 0.8rem;
-            }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 60px 0;
 
-            input:focus {
-                box-shadow: 0 0 5px #926fb1;
+                input {
+                    width: 100%;
+                    max-width: 300px;
+                    padding: 10px 10px;
+                    border-radius: 5px;
+                    border-top: 1px solid rgb(200, 200, 200);
+                    border-right: none;
+                    border-bottom: none;
+                    border-left: none;
+                    outline: 1px solid rgb(220, 220, 220);
+                    background-color: rgb(240, 240, 240);
+                    font-size: 0.8rem;
+                }
+
+                input:focus {
+                    box-shadow: 0 0 5px #926fb1;
+                }
+
+                p {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: 10px;
+                    font-size: 0.8rem;
+                    color: rgb(200, 200, 200);
+                    transition: all 0.3s;
+                }
+
             }
 
             &-submit {
                 width: 100%;
+                max-width: 300px;
                 padding: 10px 20px;
                 border-radius: 5px;
                 text-align: center;

@@ -178,7 +178,7 @@ $(document).ready(function () {
 
     // Change the image in the preview ///////////////////////////////////////////////////////////////////
 
-    
+
 
     changeBtn.addEventListener("click", () => {
         photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
@@ -217,6 +217,27 @@ $(document).ready(function () {
         // store the email in the newCollectionItem object
         const emailInput = document.getElementById("email");
         const email = emailInput.value;
+
+        // validate the email address, display notification to the user to enter valid email address if necessary and exit function
+
+        // Check for existing error message and remove it if present
+        const existingErrorMessage = document.getElementById("emailErrorMessage");
+        if (existingErrorMessage) {
+            existingErrorMessage.remove();
+        }
+
+        // Email validation using a regular expression
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            const errorMessage = document.createElement("p");
+            errorMessage.id = "emailErrorMessage";
+            errorMessage.textContent = "Please enter a valid email address.";
+            errorMessage.style.color = "red";  // Optionally, style the error message
+            emailInput.insertAdjacentElement("afterend", errorMessage);
+            return;  // Exit the function if the email is not valid
+        }
+
+
         newCollectionItem.email = email;
         console.log(newCollectionItem);
 
