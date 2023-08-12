@@ -217,6 +217,7 @@ $(document).ready(function () {
         // store the email in the newCollectionItem object
         const emailInput = document.getElementById("email");
         const email = emailInput.value;
+        const emailLabel = document.getElementById("emailLabel");
 
         // validate the email address, display notification to the user to enter valid email address if necessary and exit function
 
@@ -232,8 +233,8 @@ $(document).ready(function () {
             const errorMessage = document.createElement("p");
             errorMessage.id = "emailErrorMessage";
             errorMessage.textContent = "Please enter a valid email address.";
-            errorMessage.style.color = "red";  // Optionally, style the error message
-            emailInput.insertAdjacentElement("afterend", errorMessage);
+            errorMessage.style.color = "red";
+            emailLabel.appendChild(errorMessage);
             return;  // Exit the function if the email is not valid
         }
 
