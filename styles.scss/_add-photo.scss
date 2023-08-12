@@ -1,32 +1,32 @@
 .add-photo {
-    // visibility: hidden;
-    // opacity: 0;
-    // transition: visibility 0.5s, opacity 0.5s linear;
     position: absolute;
-    top: -80px;
+    top: 2px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 500px;
+    margin-top: 10px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.2);
-    color: rgb(100, 100, 100);
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.2);
     z-index: 10;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.3s, opacity 0.3s linear;
-    overflow: hidden;
-
-    display: flex;
+    
+    display: none;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
 
     &-header {
         width: 100%;
-        padding: 20px 0 0 20px;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px 10px 20px;
+        // position: relative;
 
         &-text {
             font-size: 20px;
@@ -34,11 +34,11 @@
         }
 
         &-close {
-            position: absolute;
-            top: 5px;
-            right: 5px;
+            // position: absolute;
+            // top: 4px;
+            // right: 4px;
             font-size: 25px;
-            padding: 5px 15px 10px 15px;
+            padding: 3px 10px 8px 12px;
             border-radius: 8px;
 
             &:hover {
@@ -55,7 +55,7 @@
         align-items: center;
         position: relative;
         width: 100%;
-        height: 80vh;
+        height: 300px;
 
         &-image {
             display: flex;
@@ -64,8 +64,8 @@
             justify-content: center;
 
             &-preview {
-                width: 90%;
-                height: 75%;
+                width: 100%;
+                height: 100%;
                 background-image: url('https://picsum.photos/800');
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -74,11 +74,11 @@
             }
 
             &-buttons {
-                border-top: 1px solid #e5e5e5;
-                padding: 20px 0 0 0;
+                width: 100%;
                 line-height: 1.42857143;
                 display: flex;
-                gap: 20px;
+                justify-content: space-between;
+                padding: 0 18px;
                 margin-top: 20px;
 
                 a {
@@ -123,9 +123,9 @@
             display: none;
             position: absolute;
             top: 0;
-            left: 2px;  // fix for bug on extra-small screens 
-            width: 99%; // causing email element to overflow on left and right
-            height: 95%; // to avoid overlapping corners of parent element and redoing border radius
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: white;
             flex-direction: column;
             align-items: center;

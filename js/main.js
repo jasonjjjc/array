@@ -162,6 +162,7 @@ $(document).ready(function () {
     };
 
     addPhotoBtn.addEventListener("click", () => {
+        addPhotoOverlay.style.display = "flex";
         addPhotoOverlay.style.visibility = "visible";
         addPhotoOverlay.style.opacity = "1";
         photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
@@ -169,6 +170,7 @@ $(document).ready(function () {
     });
 
     closeAddPhotoOverlay.addEventListener("click", () => {
+        addPhotoOverlay.style.display = "none";
         addPhotoOverlay.style.visibility = "hidden";
         addPhotoOverlay.style.opacity = "0";
     });
@@ -260,12 +262,14 @@ $(document).ready(function () {
 
         // hide the email form and the addPhotoOverlay
         emailForm.style.display = "none";
+        addPhotoOverlay.style.display = "none";
         addPhotoOverlay.style.visibility = "hidden";
         addPhotoOverlay.style.opacity = "0";
 
 
         // display the success message
         const successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "flex";
         successMessage.style.visibility = "visible";
         successMessage.style.opacity = "1";
 
@@ -282,6 +286,7 @@ $(document).ready(function () {
 
     closeSuccessMessage.addEventListener("click", () => {
         const successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "none";
         successMessage.style.visibility = "hidden";
         successMessage.style.opacity = "0";
     });
