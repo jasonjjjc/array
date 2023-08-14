@@ -175,6 +175,7 @@ $(document).ready(function () {
         addPhotoOverlay.style.display = "none";
         addPhotoOverlay.style.visibility = "hidden";
         addPhotoOverlay.style.opacity = "0";
+        emailForm.style.display = "none";
     });
 
 
@@ -221,6 +222,13 @@ $(document).ready(function () {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
+    // Utility function to get a cookie
+    function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
     function addToCookies(email) {
         // Fetch the current emails from the cookie
         const existingEmails = getCookie("userEmails");
@@ -233,24 +241,45 @@ $(document).ready(function () {
         }
     }
 
-    // Get the email suggestions datalist
-
-    // Utility function to get a cookie
-    function getCookie(name) {
-        const value = "; " + document.cookie;
-        const parts = value.split("; " + name + "=");
-        if (parts.length === 2) return parts.pop().split(";").shift();
-    }
+    // function to update the email suggestions datalist
 
     function updateEmailSuggestions(email) {
-        // Check if the email is already in the datalist to prevent duplicates
         const existingOption = emailSuggestions.querySelector(`[value="${email}"]`);
 
+        // Check if the email is already in the datalist to prevent duplicates
         if (!existingOption) {
             const option = document.createElement('option');
             option.value = email;
             emailSuggestions.appendChild(option);
         }
+    }
+
+
+    // Create a dynamic image div that stores displays the image with an overlay component that informs the user they can delete the image from the collection ///////////////////////////////////////////////////////////////////
+
+    function createImageDiv() {
+        const imgDiv = document.createElement("div");
+        imgDiv.classList.add("img-div");
+        const img = document.createElement("img");
+        img.src = newCollectionItem.photos[0];
+        imgDiv.appendChild(img);
+
+        const imgOverlay = document.createElement("div");
+        imgOverlay.classList.add("img-overlay");
+        imgOverlay.innerHTML = `Delete from collection`;
+        imgOverlay.addEventListener("click", () => {
+            // Remove the image from the collection
+            const imgDiv = imgOverlay.parentElement;
+            const emailDiv = imgDiv.parentElement;
+            if (emailDiv.children.length === 2) {
+                emailDiv.remove();
+            } else {
+                imgDiv.remove();
+            }
+        });
+
+        imgDiv.appendChild(imgOverlay);
+        return imgDiv;
     }
 
 
@@ -267,10 +296,8 @@ $(document).ready(function () {
         const emailInput = document.getElementById("email");
         const email = emailInput.value;
         const emailLabel = document.getElementById("emailLabel");
-        const emailSuggestions = document.getElementById('emailSuggestions');
+        // const emailSuggestions = document.getElementById('emailSuggestions');
 
-
-        // validate the email address, display notification to the user to enter valid email address if necessary and exit function
 
         // Check for existing error message and remove it if present
         const existingErrorMessage = document.getElementById("emailErrorMessage");
@@ -297,6 +324,7 @@ $(document).ready(function () {
         addToCookies(email);
 
 
+        // Update the email suggestions datalist
         const existingEmails = getCookie("userEmails");
         const emailsList = existingEmails ? JSON.parse(existingEmails) : [];
         emailsList.forEach(email => {
@@ -315,28 +343,7 @@ $(document).ready(function () {
 
             if (existingEmailDiv) {
                 // If the div exists, add the new image to it
-                const imgDiv = document.createElement("div");
-                imgDiv.classList.add("img-div");
-                const img = document.createElement("img");
-                img.src = newCollectionItem.photos[0];
-                imgDiv.appendChild(img);
-
-                const imgOverlay = document.createElement("div");
-                imgOverlay.classList.add("img-overlay");
-                imgOverlay.innerHTML = `Delete from collection`;
-                imgOverlay.addEventListener("click", () => {
-                    // Remove the image from the collection
-                    const imgDiv = imgOverlay.parentElement;
-                    const emailDiv = imgDiv.parentElement;
-                    if (emailDiv.children.length === 2) {
-                        emailDiv.remove();
-                    }   else {
-                        imgDiv.remove();
-                    }
-                });
-
-                imgDiv.appendChild(imgOverlay);
-
+                const imgDiv = createImageDiv();
                 existingEmailDiv.appendChild(imgDiv);
 
 
@@ -350,28 +357,7 @@ $(document).ready(function () {
                 emailHeader.innerText = newCollectionItem.email;
                 cardDiv.appendChild(emailHeader);
 
-                const imgDiv = document.createElement("div");
-                imgDiv.classList.add("img-div");
-                const img = document.createElement("img");
-                img.src = newCollectionItem.photos[0];
-                imgDiv.appendChild(img);
-
-                const imgOverlay = document.createElement("div");
-                imgOverlay.classList.add("img-overlay");
-                imgOverlay.innerHTML = `Delete from collection`;
-                imgOverlay.addEventListener("click", () => {
-                    // Remove the image from the collection
-                    const imgDiv = imgOverlay.parentElement;
-                    const emailDiv = imgDiv.parentElement;
-                    if (emailDiv.children.length === 2) {
-                        emailDiv.remove();
-                    }   else {
-                        imgDiv.remove();
-                    }
-                });
-
-                imgDiv.appendChild(imgOverlay);
-
+                const imgDiv = createImageDiv();
                 cardDiv.appendChild(imgDiv);
 
                 collectionContent.appendChild(cardDiv);
