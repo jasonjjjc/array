@@ -205,7 +205,9 @@ $(document).ready(function () {
 
 
 
-    // store the email address, add the photo and email address to to collection and display the success message ///////////////////////////////////////////////////////////////////
+    // handle email addresses by storing them to cookies then using the cookies to populate the datalist called emailSuggestions ///////////////////////////////////////////////////////////////////
+
+    // add email to cookies if it is not already there
 
     function setCookie(name, value, days) {
         let expires = "";
@@ -217,6 +219,20 @@ $(document).ready(function () {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
+    function addToCookies(email) {
+        // Fetch the current emails from the cookie
+        const existingEmails = getCookie("userEmails");
+        const emailsList = existingEmails ? JSON.parse(existingEmails) : [];
+
+        // If the email is not in the cookie list, add it
+        if (!emailsList.includes(email)) {
+            emailsList.push(email);
+            setCookie("userEmails", JSON.stringify(emailsList), 365);
+        }
+    }
+
+    // Get the email suggestions datalist
+
     // Utility function to get a cookie
     function getCookie(name) {
         const value = "; " + document.cookie;
@@ -224,8 +240,21 @@ $(document).ready(function () {
         if (parts.length === 2) return parts.pop().split(";").shift();
     }
 
+    function updateEmailSuggestions(email) {
+        // Check if the email is already in the datalist to prevent duplicates
+        const existingOption = emailSuggestions.querySelector(`[value="${email}"]`);
+
+        if (!existingOption) {
+            const option = document.createElement('option');
+            option.value = email;
+            emailSuggestions.appendChild(option);
+        }
+    }
+
+
 
     const submitBtn = document.getElementById("addToCollectionBtn");
+
 
     submitBtn.addEventListener("click", (event) => {
 
@@ -262,19 +291,15 @@ $(document).ready(function () {
         newCollectionItem.email = email;
 
 
-        // Store the email to the cookie
+        // Add the current email to the cookies
+        addToCookies(email);
+
+
         const existingEmails = getCookie("userEmails");
         const emailsList = existingEmails ? JSON.parse(existingEmails) : [];
-        if (!emailsList.includes(email)) { // check if the email is not already in the list
-            emailsList.push(email);
-            setCookie("userEmails", JSON.stringify(emailsList), 365); // store for 1 year
-            
-            // Only add the email to the datalist if it's a new email
-            const option = document.createElement('option');
-            option.value = email;
-            emailSuggestions.appendChild(option);
-        }
-
+        emailsList.forEach(email => {
+            updateEmailSuggestions(email);
+        });
 
 
         // display the new collection item in the collection list
