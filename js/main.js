@@ -315,9 +315,31 @@ $(document).ready(function () {
 
             if (existingEmailDiv) {
                 // If the div exists, add the new image to it
+                const imgDiv = document.createElement("div");
+                imgDiv.classList.add("img-div");
                 const img = document.createElement("img");
                 img.src = newCollectionItem.photos[0];
-                existingEmailDiv.appendChild(img);
+                imgDiv.appendChild(img);
+
+                const imgOverlay = document.createElement("div");
+                imgOverlay.classList.add("img-overlay");
+                imgOverlay.innerHTML = `Delete from collection`;
+                imgOverlay.addEventListener("click", () => {
+                    // Remove the image from the collection
+                    const imgDiv = imgOverlay.parentElement;
+                    const emailDiv = imgDiv.parentElement;
+                    if (emailDiv.children.length === 2) {
+                        emailDiv.remove();
+                    }   else {
+                        imgDiv.remove();
+                    }
+                });
+
+                imgDiv.appendChild(imgOverlay);
+
+                existingEmailDiv.appendChild(imgDiv);
+
+
             } else {
                 // If the div doesn't exist, create a new card with the email and image
                 const cardDiv = document.createElement("div");
@@ -328,9 +350,29 @@ $(document).ready(function () {
                 emailHeader.innerText = newCollectionItem.email;
                 cardDiv.appendChild(emailHeader);
 
+                const imgDiv = document.createElement("div");
+                imgDiv.classList.add("img-div");
                 const img = document.createElement("img");
                 img.src = newCollectionItem.photos[0];
-                cardDiv.appendChild(img);
+                imgDiv.appendChild(img);
+
+                const imgOverlay = document.createElement("div");
+                imgOverlay.classList.add("img-overlay");
+                imgOverlay.innerHTML = `Delete from collection`;
+                imgOverlay.addEventListener("click", () => {
+                    // Remove the image from the collection
+                    const imgDiv = imgOverlay.parentElement;
+                    const emailDiv = imgDiv.parentElement;
+                    if (emailDiv.children.length === 2) {
+                        emailDiv.remove();
+                    }   else {
+                        imgDiv.remove();
+                    }
+                });
+
+                imgDiv.appendChild(imgOverlay);
+
+                cardDiv.appendChild(imgDiv);
 
                 collectionContent.appendChild(cardDiv);
 
