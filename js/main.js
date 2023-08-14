@@ -270,12 +270,10 @@ $(document).ready(function () {
                 img.src = newCollectionItem.photos[0];
                 cardDiv.appendChild(img);
 
-                // Add the new card to the collection content
                 collectionContent.appendChild(cardDiv);
 
-                // Optionally, remove the placeholder text from the collection content
-                const placeholderTexts = collectionContent.querySelectorAll("p");
-                placeholderTexts.forEach(p => p.style.display = "none");
+                const emptyText = collectionContent.querySelector("#collection-empty");
+                emptyText.style.display = "none";
             }
         }
 

@@ -1,14 +1,14 @@
 #collection {
-    display:flex;
+    display: flex;
     flex-direction: column;
 
 
     &-header {
-        padding-bottom: 10px;
+        padding: 10px 20px;
         color: rgb(150, 150, 150);
 
         @media (min-width: 768px) {
-            padding: 20px 0 40px 0;
+            padding: 20px 20px 40px 20px;
 
             &-text {
                 >h2 {
@@ -19,39 +19,49 @@
     }
 
     &-content {
-        align-self: center;
-        display: grid;
-        grid-template-columns: 1fr;
+        // create a grid structure that displays one row of email-cards that overflows to the next row automatically if the content does not fit in the row
+        column-count: 1; // Number of columns, adjust as needed
+        column-gap: 20px;
         gap: 20px;
 
-        >p {
-            line-height: 2em;
-            font-weight: 600;
-        }
 
-        >p:nth-of-type(1) {
-            padding-top: 20px;
-            font-size: 1.2rem;
-        }
+        #collection-empty {
+            padding: 0 20px;
 
-        >p:nth-of-type(2) {
-            font-size: 1rem;
-
-            >span {
-                background-color: #926fb1;
-                padding: 2px 8px 4px 9px;
-                border-radius: 2px;
-                color: white;
+            p {
+                padding-top: 20px;
+                line-height: 2em;
+                font-weight: 600;
             }
+
+            p:nth-of-type(1) {
+                font-size: 1.2rem;
+            }
+
+            p:nth-of-type(2) {
+                font-size: 1rem;
+
+                >span {
+                    background-color: #926fb1;
+                    padding: 2px 8px 4px 9px;
+                    border-radius: 2px;
+                    color: white;
+                }
+            }
+
         }
+
 
 
         .email-card {
+            break-inside: avoid;
             width: 100%;
             max-width: 600px;
+            height: fit-content;
+            margin-bottom: 20px;
             overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             padding: 15px;
             gap: 20px;
             border: 1px solid rgb(220, 220, 220);
@@ -61,15 +71,11 @@
 
             h4 {
                 margin-bottom: 10px;
-                font-size: 20px;
+                font-size: 1.2rem;
                 font-weight: 600;
                 text-align: center;
                 overflow-wrap: break-word;
                 word-break: break-word;
-
-                @media (min-width: 768px) {
-                    font-size: 32px;
-                }
             }
 
             img {
@@ -81,6 +87,22 @@
                 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
             }
         }
+
+        @media (min-width: 768px) {
+            column-count: 2;
+        }
+    
+        // Increase to 3 columns for even larger screens
+        @media (min-width: 992px) {
+            column-count: 3;
+        }
+    
+        // Increase to 4 columns for the largest screens
+        @media (min-width: 1260px) {
+            column-count: 4;
+        }
+    
+
 
     }
 
