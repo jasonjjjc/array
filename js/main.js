@@ -153,7 +153,7 @@ $(document).ready(function () {
     const closeAddPhotoOverlay = document.getElementById("closeAddPhotoOverlay");
     const changeBtn = document.getElementById("changeBtn");
     const photoPreview = document.getElementById("photoPreview");
-
+    const backdrop = document.getElementById("modalBackdrop");
 
     // Object to store the new collection item
     let newCollectionItem = {
@@ -162,6 +162,7 @@ $(document).ready(function () {
     };
 
     addPhotoBtn.addEventListener("click", () => {
+        backdrop.style.display = "block";
         addPhotoOverlay.style.display = "flex";
         addPhotoOverlay.style.visibility = "visible";
         addPhotoOverlay.style.opacity = "1";
@@ -170,6 +171,7 @@ $(document).ready(function () {
     });
 
     closeAddPhotoOverlay.addEventListener("click", () => {
+        backdrop.style.display = "none";
         addPhotoOverlay.style.display = "none";
         addPhotoOverlay.style.visibility = "hidden";
         addPhotoOverlay.style.opacity = "0";
@@ -341,6 +343,7 @@ $(document).ready(function () {
 
 
         // hide the email form and the addPhotoOverlay
+        backdrop.style.display = "none";
         emailForm.style.display = "none";
         addPhotoOverlay.style.display = "none";
         addPhotoOverlay.style.visibility = "hidden";
