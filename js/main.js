@@ -207,6 +207,24 @@ $(document).ready(function () {
 
     // store the email address, add the photo and email address to to collection and display the success message ///////////////////////////////////////////////////////////////////
 
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // Utility function to get a cookie
+    function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+
     const submitBtn = document.getElementById("addToCollectionBtn");
 
     submitBtn.addEventListener("click", (event) => {
@@ -218,6 +236,8 @@ $(document).ready(function () {
         const emailInput = document.getElementById("email");
         const email = emailInput.value;
         const emailLabel = document.getElementById("emailLabel");
+        const emailSuggestions = document.getElementById('emailSuggestions');
+
 
         // validate the email address, display notification to the user to enter valid email address if necessary and exit function
 
@@ -238,9 +258,24 @@ $(document).ready(function () {
             return;  // Exit the function if the email is not valid
         }
 
-
+        // If the email is valid, store it in the newCollectionItem object
         newCollectionItem.email = email;
-        console.log(newCollectionItem);
+
+
+        // Store the email to the cookie
+        const existingEmails = getCookie("userEmails");
+        const emailsList = existingEmails ? JSON.parse(existingEmails) : [];
+        if (!emailsList.includes(email)) { // check if the email is not already in the list
+            emailsList.push(email);
+            setCookie("userEmails", JSON.stringify(emailsList), 365); // store for 1 year
+            
+            // Only add the email to the datalist if it's a new email
+            const option = document.createElement('option');
+            option.value = email;
+            emailSuggestions.appendChild(option);
+        }
+
+
 
         // display the new collection item in the collection list
 

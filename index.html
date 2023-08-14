@@ -75,7 +75,10 @@
                             </div>
                             <div id="emailForm" class="add-photo-form-email">
                                 <label id="emailLabel" for="email">Please enter your email address
-                                    <input type="email" name="email" id="email" placeholder="Email Address" />
+                                    <input type="email" name="email" id="email" placeholder="Email Address" list="emailSuggestions" />
+                                    <datalist id="emailSuggestions">
+                                        <!-- JavaScript will insert <option> elements here -->
+                                    </datalist>
                                 </label>
                                 <button id="addToCollectionBtn" class="add-photo-form-email-submit" type="submit">Add to
                                     Collection</button>

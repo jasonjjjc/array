@@ -27,6 +27,7 @@
 
         #collection-empty {
             padding: 0 20px;
+            break-inside: avoid;
 
             p {
                 padding-top: 20px;
@@ -47,6 +48,10 @@
                     border-radius: 2px;
                     color: white;
                 }
+            }
+
+            @media (min-width: 768px) {
+                width: 350px;
             }
 
         }
