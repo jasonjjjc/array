@@ -283,6 +283,27 @@ $(document).ready(function () {
     }
 
 
+    // Give each email card a unique background-color ///////////////////////////////////////////////////////////////////
+    const chosen = [];
+    const colors = ["#DCFDE3", "#FFE7EA", "#D6F1FF", "#FFF4CF", "#F8F8F8"];
+
+    function randomColor() {
+        const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+
+        if (chosen.length < 5) {
+            if (chosen.includes(selectedColor)) {
+                return randomColor(); // Ensure the recursive call returns the value
+            } else {
+                chosen.push(selectedColor);
+                return selectedColor;
+            }
+        } else {
+            chosen.length = 0; // Clear the array
+            return randomColor(); // Ensure the recursive call returns the value
+        }
+    }
+
+
 
     const submitBtn = document.getElementById("addToCollectionBtn");
 
@@ -351,6 +372,10 @@ $(document).ready(function () {
                 // If the div doesn't exist, create a new card with the email and image
                 const cardDiv = document.createElement("div");
                 cardDiv.classList.add("email-card");
+
+                cardDiv.style.backgroundColor = `${randomColor()}`;
+
+
                 cardDiv.setAttribute("data-email", newCollectionItem.email);
 
                 const emailHeader = document.createElement("h4");
