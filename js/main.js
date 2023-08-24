@@ -102,42 +102,6 @@ $(document).ready(function () {
 
 
 
-
-    // Cookie Pop-up ////////////////////////////////////////////////////////////////////////////
-
-
-    const crumbOverlay = document.getElementById("crumbOverlay");
-    const acceptCrumbs = document.getElementById("acceptCrumbs");
-    const crumbPreferenceBtn = document.getElementById("crumbPreferenceBtn");
-
-
-    if (document.cookie.indexOf("cookiesAccepted=true") > -1) {
-        crumbOverlay.style.display = "none";
-        console.log(document.cookie);
-    } else {
-        crumbOverlay.style.display = "flex";
-        console.log(document.cookie);
-    }
-
-    acceptCrumbs.addEventListener("click", () => {
-        document.cookie = "cookiesAccepted=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        if (document.cookie.indexOf("cookiesAccepted=true") > -1) {
-            crumbOverlay.style.display = "none";
-        } else {
-            crumbOverlay.style.display = "flex";
-        }
-
-    });
-
-    crumbPreferenceBtn.addEventListener("click", () => {
-        crumbOverlay.style.display = "flex";
-    });
-
-
-
-
-
-
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
