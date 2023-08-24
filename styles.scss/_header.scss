@@ -83,7 +83,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            background-color: rgb(100, 100, 100);
+            background-color: rgb(30, 30, 30);
             box-shadow: 0 0 25px 0px rgba(255, 255, 255, 0.1);
 
             &-title {
@@ -175,7 +175,7 @@
             }
 
             @media (prefers-color-scheme: dark) {
-                background-color: rgb(100, 100, 100);
+                background-color: rgb(30, 30, 30);
 
                 >h1 {
                     color: white;
@@ -185,8 +185,8 @@
                     background-color: white;
 
                     >h1 {
-                        color: rgb(100, 100, 100);
                         background-color: white;
+                        color: rgb(30, 30, 30);
                     }
                 }
 
@@ -265,6 +265,7 @@
             height: 25vh;
             width: 100%;
             border-radius: 0 0 20px 0;
+            overflow: hidden;
             background-color: white;
             position: relative;
 
@@ -295,14 +296,18 @@
             }
 
             @media (prefers-color-scheme: dark) {
-                background-color: rgb(100, 100, 100);
+                background-color: rgb(30, 30, 30);
 
                 &:hover {
                     background-color: white;
 
-                    >svg {
-                        fill: rgb(100, 100, 100);
+                    >#linkedin-hover-text {
                         background-color: white;
+
+                        >h2 {
+                            background-color: white;
+                            color: rgb(30, 30, 30);
+                        }
                     }
                 }
             }
