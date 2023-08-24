@@ -24,7 +24,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px 10px 20px;
-    // position: relative;
 
     &-text {
       font-size: 20px;
@@ -32,9 +31,6 @@
     }
 
     &-close {
-      // position: absolute;
-      // top: 4px;
-      // right: 4px;
       font-size: 25px;
       padding: 3px 10px 8px 12px;
       border-radius: 8px;
@@ -42,7 +38,11 @@
       &:hover {
         cursor: pointer;
         background-color: rgb(240, 240, 240);
+        @media (prefers-color-scheme: dark) {
+          background-color: #84858F;
+        }
       }
+
     }
   }
 
