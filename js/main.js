@@ -149,7 +149,7 @@ $(document).ready(function () {
 
     changeBtn.addEventListener("click", () => {
         photoPreview.style.backgroundImage = 'url("https://picsum.photos/800?' + new Date().getTime() + '")';
-        console.log(photoPreview.style.backgroundImage);
+
     });
 
 
