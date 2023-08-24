@@ -142,7 +142,7 @@
         input {
           width: 100%;
           max-width: 300px;
-          padding: 10px 10px;
+          padding: 10px;
           border-radius: 5px;
           border-top: 1px solid rgb(200, 200, 200);
           border-right: none;
@@ -150,7 +150,12 @@
           border-left: none;
           outline: 1px solid rgb(220, 220, 220);
           background-color: rgb(240, 240, 240);
-          font-size: 0.8rem;
+          font-size: 1rem;
+
+          @media (prefers-color-scheme: dark) {
+            color: rgb(30, 30, 30);
+          }
+
         }
 
         input:focus {

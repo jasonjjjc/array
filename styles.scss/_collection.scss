@@ -90,6 +90,8 @@
 
             .img-div {
                 position: relative;
+                background-color: transparent;
+                border-radius: 8px;
 
                 img {
                     width: 100%;
@@ -127,6 +129,8 @@
                         opacity: 1;
                     }
                 }
+
+                
             }
         }
 
