@@ -279,7 +279,7 @@ $(document).ready(function () {
 
         // store the email in the newCollectionItem object
         const emailInput = document.getElementById("email");
-        const email = emailInput.value;
+        const email = emailInput.value.toLowerCase();
         const emailLabel = document.getElementById("emailLabel");
         // const emailSuggestions = document.getElementById('emailSuggestions');
 
